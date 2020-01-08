@@ -1,7 +1,13 @@
 # MVVMCalculator
+By SH CHoi
 
-- Performs simple calculate functions
-- Able to do continuous calculations like other calculators
+Descriptions
+-------------
+* Performs simple calculate functions
+* Able to do continuous calculations like other calculators
 
-* Databinding
-* MVVM
+What were used
+-------------
+```
+Databinding, MVVM
+```
