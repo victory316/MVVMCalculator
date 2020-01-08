@@ -181,7 +181,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:onClick="@{() -> viewModel.inputNumber(-1)}"
+                android:text="."/>
 
             <Button
                 android:layout_width="wrap_content"
