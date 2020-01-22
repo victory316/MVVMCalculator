@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#1A1A1A</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="calculatorBackground">#C9A07B</color>
+    <color name="buttonBackground">#202020</color>
+    <color name="cButtonBackground">#FF8B51</color>
+    <color name="buttonTextColor">#FFFFFF</color>
+    <color name="displaySectionBackground">#CECECE</color>
+    <color name="displaySectionTextColor">#000000</color>
+
 </resources>
