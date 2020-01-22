@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/calculatorBackground"
         tools:context=".view.MainActivity">
 
         <TextView
@@ -25,6 +26,9 @@
             android:padding="10dp"
             android:gravity="end"
             android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/displaySectionTextColor"
+            android:background="@color/displaySectionBackground"
             android:text="@={viewModel.currentInput}" />
 
         <GridLayout
@@ -50,7 +54,10 @@
                 android:layout_rowWeight="1"
                 android:onClick="@{() -> viewModel.doAC()}"
                 android:padding="5dp"
+                android:elevation="2dp"
                 android:text="C"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/cButtonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -60,7 +67,10 @@
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
                 android:padding="5dp"
+                android:elevation="2dp"
                 android:text=""
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -69,7 +79,10 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:padding="5dp"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -78,9 +91,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.doOperation(4)}"
                 android:padding="5dp"
                 android:text="÷"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -91,7 +107,10 @@
                 android:layout_gravity="fill"
                 android:onClick="@{() -> viewModel.inputNumber(7)}"
                 android:padding="5dp"
+                android:elevation="2dp"
                 android:text="7"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -100,9 +119,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(8)}"
                 android:padding="5dp"
                 android:text="8"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -111,9 +133,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(9)}"
                 android:padding="5dp"
                 android:text="9"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -122,9 +147,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.doOperation(3)}"
                 android:padding="5dp"
                 android:text="x"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -133,8 +161,11 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(4)}"
                 android:padding="5dp"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:text="4"
                 android:textSize="18sp" />
 
@@ -144,9 +175,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(5)}"
                 android:padding="5dp"
                 android:text="5"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -155,9 +189,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(6)}"
                 android:padding="5dp"
                 android:text="6"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -166,9 +203,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.doOperation(2)}"
                 android:padding="5dp"
                 android:text="-"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -177,9 +217,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(1)}"
                 android:padding="5dp"
                 android:text="1"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -190,7 +233,10 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:text="2"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -201,7 +247,10 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:text="3"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -212,6 +261,9 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:text="+"
                 android:textSize="18sp" />
 
@@ -221,7 +273,10 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:padding="5dp"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -230,9 +285,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(0)}"
                 android:padding="5dp"
                 android:text="0"
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -241,9 +299,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.inputNumber(-1)}"
                 android:padding="5dp"
                 android:text="."
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
 
             <Button
@@ -252,9 +313,12 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:layout_gravity="fill"
+                android:elevation="2dp"
                 android:onClick="@{() -> viewModel.getTheResult()}"
                 android:padding="5dp"
                 android:text="="
+                android:textColor="@color/buttonTextColor"
+                android:backgroundTint="@color/buttonBackground"
                 android:textSize="18sp" />
         </GridLayout>
 
