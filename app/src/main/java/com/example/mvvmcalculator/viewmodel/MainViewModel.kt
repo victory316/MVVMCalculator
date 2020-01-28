@@ -1,5 +1,6 @@
 package com.example.mvvmcalculator.viewmodel
 
+import android.util.Log
 import androidx.databinding.BaseObservable
 import androidx.databinding.ObservableField
 
@@ -11,18 +12,36 @@ class MainViewModel: BaseObservable() {
 
     private var first = 0.0
     private var second = 0.0
+    private var third = 0.0
     private var operator = 0
     private var stringBuffer = StringBuffer()
     private var newOperation = false
+    private var commaActivated = false
 
     fun inputNumber(number: Int) {
 
-        // input이 COMMA일때와 number일때의 처리
-        if (number == COMMA) {
-            stringBuffer.append(".")
+        // [FIX | 200118] : 0 Input 및 콤마 연속적으로 들어올 때의 처리
+        if (currentInput.get() != "0") {
+
+            // input이 COMMA일때와 number일때의 처리
+            if (number == COMMA) {
+                if (!commaActivated && !currentInput.get().isNullOrBlank()) {
+                    commaActivated = true
+                    stringBuffer.append(".")
+                }
+            } else {
+                stringBuffer.append(number)
+            }
         } else {
-            stringBuffer.append(number)
+            if (number == COMMA && !commaActivated && !currentInput.get().isNullOrBlank()) {
+                commaActivated = true
+                stringBuffer.append(".")
+            } else if (number != 0 && number != COMMA) {
+                stringBuffer.delete(0, stringBuffer.capacity())
+                stringBuffer.append(number)
+            }
         }
+
         currentInput.set(stringBuffer.toString())
     }
 
@@ -34,6 +53,7 @@ class MainViewModel: BaseObservable() {
         tempInput.set("")
         latestResult.set("")
         operator = 0
+        commaActivated = false
     }
 
     fun doOperation(operation: Int) {
@@ -45,11 +65,13 @@ class MainViewModel: BaseObservable() {
         currentInput.set("")
         operator = operation
         newOperation = true
+        commaActivated = false
     }
 
     fun getTheResult() {
 
         // 우선적으로 operator와 입력값이 존재하는지 확인
+        // [FIX | 200128] : 세번째 임시 double 변수를 추가해 연속 연산수행시 값을 저장하도록 함.
         if (operator != 0 && !currentInput.get().isNullOrBlank()) {
 
             // 가장 최근 result가 저장되어있는지 확인, 존재 유무에 따라 first 및 second value 설정
@@ -58,18 +80,19 @@ class MainViewModel: BaseObservable() {
                 if (!newOperation) {
                     // case 1 : 신규연산 없이 결과 버튼을 눌렀을 때
                     first = latestResult.get()!!.toDouble()
-                    second = tempInput.get()!!.toDouble()
+                    second = third
                 } else {
                     // case 2때 : AC 이전 신규연산을 수행했을때 때
                     first = latestResult.get()!!.toDouble()
                     second = currentInput.get()!!.toDouble()
+                    third = second
                 }
 
             } else {
-
                 // case 3 : 최근 결과값 없이 AC 수행 혹은 초기에 결과 버튼을 눌렀을 때
                 first = latestInput.get()!!.toDouble()
                 second = currentInput.get()!!.toDouble()
+                third = second
             }
 
             when (operator) {
