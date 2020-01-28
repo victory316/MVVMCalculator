@@ -1,5 +1,6 @@
 package com.example.mvvmcalculator.viewmodel
 
+import android.util.Log
 import androidx.databinding.BaseObservable
 import androidx.databinding.ObservableField
 
@@ -14,15 +15,32 @@ class MainViewModel: BaseObservable() {
     private var operator = 0
     private var stringBuffer = StringBuffer()
     private var newOperation = false
+    private var commaActivated = false
 
     fun inputNumber(number: Int) {
 
-        // input이 COMMA일때와 number일때의 처리
-        if (number == COMMA) {
-            stringBuffer.append(".")
+        Log.d("test", "currentInput  : ${currentInput.get()}")
+        // 200118 추가 : 0 Input 및 콤마 연속적으로 들어올 때의 처리
+        if (currentInput.get() != "0") {
+            // input이 COMMA일때와 number일때의 처
+            if (number == COMMA) {
+                if (!commaActivated) {
+                    commaActivated = true
+                    stringBuffer.append(".")
+                }
+            } else {
+                stringBuffer.append(number)
+            }
         } else {
-            stringBuffer.append(number)
+            if (number == COMMA && !commaActivated) {
+                commaActivated = true
+                stringBuffer.append(".")
+            } else if (number != 0 && number != COMMA) {
+                stringBuffer.delete(0, stringBuffer.capacity())
+                stringBuffer.append(number)
+            }
         }
+
         currentInput.set(stringBuffer.toString())
     }
 
@@ -34,6 +52,7 @@ class MainViewModel: BaseObservable() {
         tempInput.set("")
         latestResult.set("")
         operator = 0
+        commaActivated = false
     }
 
     fun doOperation(operation: Int) {
@@ -45,6 +64,7 @@ class MainViewModel: BaseObservable() {
         currentInput.set("")
         operator = operation
         newOperation = true
+        commaActivated = false
     }
 
     fun getTheResult() {
