@@ -95,11 +95,13 @@ class MainViewModel: BaseObservable() {
                 third = second
             }
 
-            when (operator) {
-                PLUS -> currentInput.set(first.plus(second).toString())
-                MINUS -> currentInput.set(first.minus(second).toString())
-                MULTIPLY -> currentInput.set(first.times(second).toString())
-                DIVISION -> currentInput.set(first.div(second).toString())
+            with (currentInput) {
+                when (operator) {
+                    PLUS -> set(first.plus(second).toString())
+                    MINUS -> set(first.minus(second).toString())
+                    MULTIPLY -> set(first.times(second).toString())
+                    DIVISION -> set(first.div(second).toString())
+                }
             }
 
             latestResult.set(currentInput.get().toString())
