@@ -5,11 +5,12 @@ Descriptions
 -------------
 * Performs simple calculate functions
 * Able to do continuous calculations like other calculators
+* Focused on not using AAC ViewModel
 
 What were used
 -------------
 ```
-Databinding, MVVM
+Databinding, MVVM (Without AAC ViewModel)
 ```
 Screenshot
 -------------
